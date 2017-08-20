@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block projects %}
+    <h2>
+        {{ project.name }}
+    </h2>
+
+    <table>
+        <thead>
+        <tr>
+            <td>Project</td>
+            <td>Description</td>
+            <td>Status</td>
+            <td>Deadline</td>
+        </tr>
+        </thead>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.project.name }}</td>
+                <td>{{ task.shortDescription }}</td>
+                <td>{{ task.status }}</td>
+                {% if(task.deadline  < date()) %}
+                    <td style="color: red">{{ task.deadline|date("m/d/Y") }}</td>
+                {% else %}
+                    <td>{{ task.deadline|date("m/d/Y") }}</td>
+                {% endif %}
+                <td>edit</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+

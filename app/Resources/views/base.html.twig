@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <a href="{{ path('task_create') }}">Add task to existing project</a>
+        <a href="{{ path('project_showAll') }}">Show all projects</a>
+        {% block main %}{% endblock %}
+        {% block projects %}{% endblock %}
+        {% block tasks %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
